@@ -17,3 +17,14 @@
     </dependency>
 </dependencies>
 ```
+
+# Gradle
+
+```
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+dependencies {
+    compileOnly "com.github.relampagorojo93:RoyaleCustomTagsAPI:tag"
+}
+```
