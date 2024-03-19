@@ -12,7 +12,7 @@
     <dependency>
         <groupId>com.github.relampagorojo93</groupId>
         <artifactId>RoyaleCustomTagsAPI</artifactId>
-        <version>version</version>
+        <version>tag</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
