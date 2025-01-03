@@ -12,8 +12,19 @@
     <dependency>
         <groupId>com.github.relampagorojo93</groupId>
         <artifactId>RoyaleCustomTagsAPI</artifactId>
-        <version>version</version>
+        <version>tag</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
+```
+
+# Gradle
+
+```
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+dependencies {
+    compileOnly "com.github.relampagorojo93:RoyaleCustomTagsAPI:tag"
+}
 ```
