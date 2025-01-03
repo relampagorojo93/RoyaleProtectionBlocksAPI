@@ -60,6 +60,12 @@ public interface IProtection {
 
 	public abstract boolean isBanned(UUID uuid);
 
+	public abstract List<UUID> getMembers();
+
+	public abstract List<UUID> getOwners();
+
+	public abstract List<UUID> getBanneds();
+
 	public abstract void addMemberAndSave(UUID memberUuid) throws RoyaleProtectionBlocksException;
 
 	public abstract void removeMemberAndSave(UUID memberUuid) throws RoyaleProtectionBlocksException;
@@ -128,7 +134,7 @@ public interface IProtection {
 
 	public abstract void unblockAndSave();
 
-	public abstract void setOwnerUuidAndSave(UUID ownerUuid);
+	public abstract void setOwnerUuidAndSave(UUID ownerUuid) throws RoyaleProtectionBlocksException;
 
 	public abstract void setPriceAndSave(double price);
 
