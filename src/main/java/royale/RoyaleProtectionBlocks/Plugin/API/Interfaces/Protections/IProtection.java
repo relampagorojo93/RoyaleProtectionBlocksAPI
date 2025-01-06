@@ -1,5 +1,6 @@
 package royale.RoyaleProtectionBlocks.Plugin.API.Interfaces.Protections;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -7,10 +8,12 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import royale.RoyaleProtectionBlocks.Plugin.API.Enums.BlockReason;
+import royale.RoyaleProtectionBlocks.Plugin.API.Enums.SettingGroup;
 import royale.RoyaleProtectionBlocks.Plugin.API.Exceptions.RoyaleProtectionBlocksException;
 import royale.RoyaleProtectionBlocks.Plugin.API.Interfaces.ProtectionBlocks.IProtectionBlock;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.SimpleLocation;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.SimpleLocation.SimpleLocationArea;
+import royale.RoyaleProtectionBlocks.Plugin.API.Objects.Settings.AbstractSetting;
 
 public interface IProtection {
 
@@ -139,6 +142,32 @@ public interface IProtection {
 	public abstract void setPriceAndSave(double price);
 
 	public abstract void setPublicAccessAndSave(boolean publicAccess) throws RoyaleProtectionBlocksException;
+
+	/*
+	 * Setting methods
+	 */
+
+	public abstract <T extends Serializable> T getSettingValue(AbstractSetting<T> setting, Player player)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract <T extends Serializable> T getSettingValue(AbstractSetting<T> setting, SettingGroup group)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract String getSettingValueAsString(AbstractSetting<?> setting, Player player)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract String getSettingValueAsString(AbstractSetting<?> setting, SettingGroup group)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract <T extends Serializable> void setSettingValue(AbstractSetting<T> setting, SettingGroup group,
+			T value) throws RoyaleProtectionBlocksException;
+
+	public abstract void setUnparsedSettingValue(AbstractSetting<?> setting, SettingGroup group, String value)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract boolean canTeleport(Player player);
+
+	public abstract boolean canFly(Player player);
 
 	public default void teleport(Player player) throws RoyaleProtectionBlocksException {
 		teleport(player, false, false);
