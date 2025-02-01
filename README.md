@@ -11,7 +11,7 @@
 <dependencies>
     <dependency>
         <groupId>com.github.relampagorojo93</groupId>
-        <artifactId>RoyaleCustomTagsAPI</artifactId>
+        <artifactId>RoyaleProtectionBlocksAPI</artifactId>
         <version>tag</version>
         <scope>provided</scope>
     </dependency>
@@ -25,6 +25,6 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 dependencies {
-    compileOnly "com.github.relampagorojo93:RoyaleCustomTagsAPI:tag"
+    compileOnly "com.github.relampagorojo93:RoyaleProtectionBlocksAPI:tag"
 }
 ```
