@@ -8,11 +8,13 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import royale.RoyaleProtectionBlocks.Plugin.API.Enums.BlockReason;
+import royale.RoyaleProtectionBlocks.Plugin.API.Enums.PermissionGroup;
 import royale.RoyaleProtectionBlocks.Plugin.API.Enums.SettingGroup;
 import royale.RoyaleProtectionBlocks.Plugin.API.Exceptions.RoyaleProtectionBlocksException;
 import royale.RoyaleProtectionBlocks.Plugin.API.Interfaces.ProtectionBlocks.IProtectionBlock;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.SimpleLocation;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.SimpleLocation.SimpleLocationArea;
+import royale.RoyaleProtectionBlocks.Plugin.API.Objects.Permissions.AbstractPermission;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.Settings.AbstractSetting;
 
 public interface IProtection {
@@ -163,6 +165,15 @@ public interface IProtection {
 			T value) throws RoyaleProtectionBlocksException;
 
 	public abstract void setUnparsedSettingValue(AbstractSetting<?> setting, SettingGroup group, String value)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract Boolean getPermissionValue(AbstractPermission setting, Player player)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract Boolean getPermissionValue(AbstractPermission setting, PermissionGroup group)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract void setPermissionValue(AbstractPermission permission, PermissionGroup group, Boolean value)
 			throws RoyaleProtectionBlocksException;
 
 	public abstract boolean canTeleport(Player player);

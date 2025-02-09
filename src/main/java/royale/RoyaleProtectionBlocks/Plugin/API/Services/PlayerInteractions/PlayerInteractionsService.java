@@ -17,6 +17,7 @@ import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Obje
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionSetHomeRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionShowBlockRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionSplitRequestInput;
+import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionSwitchPermissionRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionSwitchSettingRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionTeleportHomeRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionTogglePublicAccessRequestInput;
@@ -99,5 +100,8 @@ public abstract class PlayerInteractionsService {
 
 	public abstract <T extends Serializable> void protectionSwitchSettingRequest(
 			ProtectionSwitchSettingRequestInput<T> input) throws RoyaleProtectionBlocksException;
+
+	public abstract void protectionSwitchPermissionRequest(ProtectionSwitchPermissionRequestInput input)
+			throws RoyaleProtectionBlocksException;
 
 }
