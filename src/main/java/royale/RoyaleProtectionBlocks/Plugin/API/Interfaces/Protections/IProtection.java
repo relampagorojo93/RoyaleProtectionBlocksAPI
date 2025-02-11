@@ -167,18 +167,17 @@ public interface IProtection {
 	public abstract void setUnparsedSettingValue(AbstractSetting<?> setting, SettingGroup group, String value)
 			throws RoyaleProtectionBlocksException;
 
-	public abstract Boolean getPermissionValue(AbstractPermission setting, Player player)
-			throws RoyaleProtectionBlocksException;
+	public abstract Boolean getPermissionValue(AbstractPermission setting, Player player);
 
-	public abstract Boolean getPermissionValue(AbstractPermission setting, PermissionGroup group)
-			throws RoyaleProtectionBlocksException;
+	public abstract Boolean getPermissionValue(AbstractPermission setting, PermissionGroup group);
 
-	public abstract void setPermissionValue(AbstractPermission permission, PermissionGroup group, Boolean value)
-			throws RoyaleProtectionBlocksException;
+	public abstract void setPermissionValue(AbstractPermission permission, PermissionGroup group, Boolean value);
 
 	public abstract boolean canTeleport(Player player);
 
 	public abstract boolean canFly(Player player);
+
+	public abstract boolean canToggleBlockVisibility(Player player);
 
 	public default void teleport(Player player) throws RoyaleProtectionBlocksException {
 		teleport(player, false, false);
