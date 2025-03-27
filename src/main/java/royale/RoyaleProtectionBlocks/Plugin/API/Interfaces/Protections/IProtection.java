@@ -43,6 +43,8 @@ public interface IProtection {
 
 	public abstract boolean isOwnerOnline();
 
+	public abstract boolean isCreationInProgress();
+
 	public abstract Location getBukkitLocation();
 
 	public abstract int getPriority();

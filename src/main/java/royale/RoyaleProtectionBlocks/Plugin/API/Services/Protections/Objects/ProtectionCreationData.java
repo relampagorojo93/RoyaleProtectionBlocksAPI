@@ -18,6 +18,7 @@ public class ProtectionCreationData {
 
 	private boolean checkWorldGuardOverlap = true;
 	private boolean checkOverlap = true;
+	private boolean executeOnAsync = true;
 
 	public ProtectionCreationData(CommandSender executor, UUID ownerUuid, IProtectionBlock protectionBlock,
 			Location location) {
@@ -67,6 +68,15 @@ public class ProtectionCreationData {
 	}
 
 	public ProtectionCreationData setCheckOverlap(boolean checkOverlap) {
+		this.checkOverlap = checkOverlap;
+		return this;
+	}
+
+	public boolean isExecuteOnAsync() {
+		return this.executeOnAsync;
+	}
+
+	public ProtectionCreationData setExecuteOnAsync(boolean checkOverlap) {
 		this.checkOverlap = checkOverlap;
 		return this;
 	}
