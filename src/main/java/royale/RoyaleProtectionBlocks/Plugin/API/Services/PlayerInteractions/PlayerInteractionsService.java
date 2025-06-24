@@ -5,6 +5,7 @@ import java.io.Serializable;
 import royale.RoyaleProtectionBlocks.Plugin.API.Exceptions.RoyaleProtectionBlocksException;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Inventories.OpenProtectionManagementInventoryRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Inventories.OpenProtectionRemovalInventoryRequestInput;
+import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionChangeDisplayItemRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionCreationRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionHideBlockRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionKickRequestInput;
@@ -24,7 +25,10 @@ import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Obje
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.ProtectionTransferRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Banneds.ProtectionBannedAddRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Banneds.ProtectionBannedRemoveRequestInput;
+import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Members.ProtectionMemberAcceptInvitationRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Members.ProtectionMemberAddRequestInput;
+import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Members.ProtectionMemberInviteRequestInput;
+import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Members.ProtectionMemberRemoveInvitationRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Members.ProtectionMemberRemoveRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Owners.ProtectionOwnerAddRequestInput;
 import royale.RoyaleProtectionBlocks.Plugin.API.Services.PlayerInteractions.Objects.Protections.Owners.ProtectionOwnerRemoveRequestInput;
@@ -44,6 +48,15 @@ public abstract class PlayerInteractionsService {
 			throws RoyaleProtectionBlocksException;
 
 	public abstract void protectionMemberAddRequest(ProtectionMemberAddRequestInput input)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract void protectionMemberInviteRequest(ProtectionMemberInviteRequestInput input)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract void protectionMemberAcceptInvitationRequest(ProtectionMemberAcceptInvitationRequestInput input)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract void protectionMemberRemoveInvitationRequest(ProtectionMemberRemoveInvitationRequestInput input)
 			throws RoyaleProtectionBlocksException;
 
 	public abstract void protectionMemberRemoveRequest(ProtectionMemberRemoveRequestInput input)
@@ -70,6 +83,9 @@ public abstract class PlayerInteractionsService {
 			throws RoyaleProtectionBlocksException;
 
 	public abstract void protectionRenameRequest(ProtectionRenameRequestInput input)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract void protectionChangeDisplayItemRequest(ProtectionChangeDisplayItemRequestInput input)
 			throws RoyaleProtectionBlocksException;
 
 	public abstract void protectionPriorityChangeRequest(ProtectionPriorityChangeRequestInput input)

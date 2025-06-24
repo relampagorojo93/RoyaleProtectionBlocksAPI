@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Location;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import royale.RoyaleProtectionBlocks.Plugin.API.Enums.BlockReason;
 import royale.RoyaleProtectionBlocks.Plugin.API.Enums.PermissionGroup;
@@ -16,6 +18,7 @@ import royale.RoyaleProtectionBlocks.Plugin.API.Objects.SimpleLocation;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.SimpleLocation.SimpleLocationArea;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.Permissions.AbstractPermission;
 import royale.RoyaleProtectionBlocks.Plugin.API.Objects.Settings.AbstractSetting;
+import royale.RoyaleProtectionBlocks.Plugin.API.Services.Protections.Objects.ProtectionInvitation;
 
 public interface IProtection {
 
@@ -32,6 +35,16 @@ public interface IProtection {
 	public abstract String getOwnerName();
 
 	public abstract long getOwnerLastPlayed();
+
+	public abstract ItemStack getDisplayItem();
+
+	public abstract ItemStack getDisplayItemOrDefault();
+
+	public abstract void setDisplayItemAndSave(ItemStack displayItem);
+
+	public default void resetItemAndSave() {
+		setDisplayItemAndSave(null);
+	}
 
 	public abstract double getPrice();
 
@@ -84,6 +97,15 @@ public interface IProtection {
 	public abstract void addBannedAndSave(UUID bannedUuid) throws RoyaleProtectionBlocksException;
 
 	public abstract void removeBannedAndSave(UUID bannedUuid) throws RoyaleProtectionBlocksException;
+
+	public abstract ProtectionInvitation addInvitedPlayerAndSave(UUID playerUuid)
+			throws RoyaleProtectionBlocksException;
+
+	public abstract void acceptInvitationAndSave(UUID playerUuid) throws RoyaleProtectionBlocksException;
+
+	public abstract void removeInvitedPlayerAndSave(UUID playerUuid) throws RoyaleProtectionBlocksException;
+
+	public abstract boolean isInvitedPlayer(UUID playerUuid);
 
 	public abstract boolean kickPlayer(Player player) throws RoyaleProtectionBlocksException;
 
@@ -169,7 +191,7 @@ public interface IProtection {
 	public abstract void setUnparsedSettingValue(AbstractSetting<?> setting, SettingGroup group, String value)
 			throws RoyaleProtectionBlocksException;
 
-	public abstract Boolean getPermissionValue(AbstractPermission setting, Player player);
+	public abstract Boolean getPermissionValue(AbstractPermission setting, OfflinePlayer player);
 
 	public abstract Boolean getPermissionValue(AbstractPermission setting, PermissionGroup group);
 
@@ -191,7 +213,6 @@ public interface IProtection {
 			getChildProtections().forEach(child -> {
 				try {
 					child.performAllProtections(perform);
-					perform.accept(child);
 				} catch (Throwable e) {
 					throw new RuntimeException(e);
 				}
